@@ -18,9 +18,12 @@
     * [DataFrame查询1-整体](数据分析库的操作/DataFrame查询1-整体.md)
     * [DataFrame查询2-专用查询](数据分析库的操作/DataFrame查询2-专用查询.md)
     * [DataFrame查询3-专有查询：过滤查询](数据分析库的操作/DataFrame查询3-专有查询：过滤查询.md)
-    * [Pandas对象的数据操作：增删改查](数据分析库的操作/Pandas对象的数据操作：增删改查.md)
-    * [Pandas数据操作：其他操作](数据分析库的操作/Pandas数据操作：其他操作.md)
-
+    * [Pandas数据分析库操作]()
+        * [Pandas对象的数据操作：增删改查](数据分析库的操作/Pandas对象的数据操作：增删改查.md)
+        * [Pandas数据操作：其他操作](数据分析库的操作/Pandas数据操作：其他操作.md)
+        * [Pandas数据存取](数据分析库的操作/1Pandas数据存取.md)
+        * [Pandas数据运算](数据分析库的操作/2Pandas数据运算.md)
+        * [Pandas分组聚合1](数据分析库的操作/3Pandas分组聚合1.md)
 
 
 
