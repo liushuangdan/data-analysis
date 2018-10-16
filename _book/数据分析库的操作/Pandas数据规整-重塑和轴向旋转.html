@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Pandas数据操作：其他操作 | Python 数据分析学习目录</title>
+        <title>Pandas数据规整-重塑和轴向旋转 | Python 数据分析学习目录</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../数据分析库的操作/1Pandas数据存取.html" />
+    <link rel="next" href="../数据分析库的操作/2透视表和交叉表.html" />
     
     
-    <link rel="prev" href="../数据分析库的操作/Pandas对象的数据操作：增删改查.html" />
+    <link rel="prev" href="../数据分析库的操作/Pandas分组聚合2.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="4.4.2"
-        data-chapter-title="Pandas数据操作：其他操作"
-        data-filepath="数据分析库的操作/Pandas数据操作：其他操作.md"
+        data-level="4.5"
+        data-chapter-title="Pandas数据规整-重塑和轴向旋转"
+        data-filepath="数据分析库的操作/Pandas数据规整-重塑和轴向旋转.md"
         data-basepath=".."
         data-revision="Tue Oct 16 2018 21:05:47 GMT+0800 (中国标准时间)"
         data-innerlanguage="">
@@ -334,7 +334,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.4.2" data-path="数据分析库的操作/Pandas数据操作：其他操作.html">
+        <li class="chapter " data-level="4.4.2" data-path="数据分析库的操作/Pandas数据操作：其他操作.html">
             
                 
                     <a href="../数据分析库的操作/Pandas数据操作：其他操作.html">
@@ -414,7 +414,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.5" data-path="数据分析库的操作/Pandas数据规整-重塑和轴向旋转.html">
+        <li class="chapter active" data-level="4.5" data-path="数据分析库的操作/Pandas数据规整-重塑和轴向旋转.html">
             
                 
                     <a href="../数据分析库的操作/Pandas数据规整-重塑和轴向旋转.html">
@@ -488,69 +488,30 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="pandas&#x6570;&#x636E;&#x64CD;&#x4F5C;&#xFF1A;&#x5176;&#x4ED6;&#x64CD;&#x4F5C;">Pandas&#x6570;&#x636E;&#x64CD;&#x4F5C;&#xFF1A;&#x5176;&#x4ED6;&#x64CD;&#x4F5C;</h1>
+                        <h1 id="pandas&#x6570;&#x636E;&#x89C4;&#x6574;&#x91CD;&#x5851;&#x548C;&#x8F74;&#x5411;&#x65CB;&#x8F6C;">Pandas&#x6570;&#x636E;&#x89C4;&#x6574;-&#x91CD;&#x5851;&#x548C;&#x8F74;&#x5411;&#x65CB;&#x8F6C;</h1>
 <hr>
-<ul>
-<li>Pandas&#x5BF9;&#x8C61;&#x7684;&#x547D;&#x540D;&#xFF1A;name</li>
-<li>Pandas&#x5BF9;&#x8C61;&#x7684;&#x904D;&#x5386;</li>
-</ul>
-<h2 id="pandas&#x5BF9;&#x8C61;&#x7684;&#x547D;&#x540D;&#xFF1A;name">Pandas&#x5BF9;&#x8C61;&#x7684;&#x547D;&#x540D;&#xFF1A;name</h2>
-<p>Series &#x548C; DataFrame &#x5BF9;&#x8C61;&#x672C;&#x8EAB;&#xFF0C;&#x7D22;&#x5F15;&#x90FD;&#x53EF;&#x4EE5;&#x547D;&#x540D;</p>
+<p>&#x6709;&#x8BB8;&#x591A;&#x7528;&#x4E8E;&#x91CD;&#x65B0;&#x6392;&#x5217;&#x8868;&#x683C;&#x578B;&#x6570;&#x636E;&#x7684;&#x57FA;&#x7840;&#x8FD0;&#x7B97;&#x3002;&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x4E5F;&#x79F0;&#x4F5C;&#x91CD;&#x5851;&#xFF08;reshape&#xFF09;&#x6216;&#x8F74;&#x5411;&#x65CB;&#x8F6C;&#xFF08;pivot&#xFF09;&#x8FD0;&#x7B97;&#x3002;</p>
+<p>&#x6570;&#x636E;&#x91CD;&#x5851;&#x548C;&#x8F74;&#x5411;&#x65CB;&#x8F6C;&#x64CD;&#x4F5C;&#xFF1A;&#x8868;&#x793A;&#x8F6C;&#x6362;&#x4E00;&#x4E2A;&#x8868;&#x683C;&#x6216;&#x5411;&#x91CF;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x4F7F;&#x5176;&#x9002;&#x5408;&#x4E8E;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x5206;&#x6790;</p>
+<h2 id="&#x91CD;&#x5851;&#x5C42;&#x6B21;&#x5316;&#x7D22;&#x5F15;">&#x91CD;&#x5851;&#x5C42;&#x6B21;&#x5316;&#x7D22;&#x5F15;</h2>
+<hr>
+<p>&#x5C42;&#x6B21;&#x5316;&#x7D22;&#x5F15;&#x4E3A;DataFrame&#x6570;&#x636E;&#x7684;&#x91CD;&#x6392;&#x4EFB;&#x52A1;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x5177;&#x6709;&#x826F;&#x597D;&#x4E00;&#x81F4;&#x6027;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#x6709;&#x4E8C;&#xFF1A;</p>
+<p>stack&#xFF1A;&#x5217;&#x8F6C;&#x884C;&#xFF0C;&#x5C06;&#x6570;&#x636E;&#x7684;&#x5217;&#x201C;&#x65CB;&#x8F6C;&#x201D;&#x4E3A;&#x884C;</p>
+<pre><code>&#xFF08;&#x5C11;&#x7528;&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x5C06;DataFrame&#x8F6C;&#x4E3A;&#x5C42;&#x6B21;&#x5316;Series&#x7528;&#xFF09;
+</code></pre><p><strong> unstack </strong>&#xFF1A;&#x884C;&#x8F6C;&#x5217;&#xFF0C;&#x5C06;&#x6570;&#x636E;&#x7684;&#x884C;&#x201C;&#x65CB;&#x8F6C;&#x201D;&#x4E3A;&#x5217; </p>
+<pre><code>&#xFF08;&#x5E38;&#x7528;&#xFF1A;&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x5C06;&#x5C42;&#x6B21;&#x5316;Series&#x8F6C;&#x4E3A;DataFrame&#xFF09;
+
+&#x4E8C;&#x8005;&#x4E92;&#x4E3A;&#x9006;&#x8FD0;&#x7B97;
+</code></pre><p> Series &#x6CA1;&#x6709;stack&#x5C5E;&#x6027;</p>
 <pre><code class="lang-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
 <span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
 </code></pre>
-<h1 id="series-&#x7684;name&#x547D;&#x540D;">Series &#x7684;name&#x547D;&#x540D;</h1>
-<pre><code class="lang-python">a = pd.Series([<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">8</span>,<span class="hljs-number">12</span>,<span class="hljs-number">14</span>])
-a
-</code></pre>
-<pre><code>0     3
-1     5
-2     8
-3    12
-4    14
-dtype: int64
-</code></pre><pre><code class="lang-python">a.name  <span class="hljs-comment"># &#x9ED8;&#x8BA4;&#x6CA1;&#x6709;name &#x5C5E;&#x6027;</span>
-a.name = <span class="hljs-string">&apos;&#x5F20;&#x4E09;&apos;</span>   <span class="hljs-comment"># &#x5217;&#x7D22;&#x5F15;&#x547D;&#x540D;</span>
-a.name
-</code></pre>
-<pre><code>&apos;&#x5F20;&#x4E09;&apos;
-</code></pre><pre><code class="lang-python">a
-</code></pre>
-<pre><code>0     3
-1     5
-2     8
-3    12
-4    14
-Name: &#x5F20;&#x4E09;, dtype: int64
-</code></pre><h2 id="series&#x7684;&#x547D;&#x540D;">Series&#x7684;&#x547D;&#x540D;</h2>
-<pre><code class="lang-python"><span class="hljs-comment"># Series &#x7D22;&#x5F15;&#x547D;&#x540D;</span>
-
-
-a.index.name 
-a.index.name = <span class="hljs-string">&apos;aaa&apos;</span>   <span class="hljs-comment">#&#x884C;&#x7D22;&#x5F15;&#x547D;&#x540D;</span>
-a.index
-</code></pre>
-<pre><code>RangeIndex(start=0, stop=5, step=1, name=&apos;aaa&apos;)
-</code></pre><pre><code class="lang-python">a
-</code></pre>
-<pre><code>aaa
-0     3
-1     5
-2     8
-3    12
-4    14
-Name: &#x5F20;&#x4E09;, dtype: int64
-</code></pre><p>Series &#x547D;&#x540D;&#x7684;&#x7528;&#x5904;</p>
-<pre><code class="lang-python">a2 = pd.Series([<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>])
-a2
-</code></pre>
-<pre><code>0    2
-1    3
-2    4
-3    5
-4    6
-dtype: int64
-</code></pre><pre><code class="lang-python">pd.DataFrame(a2)    <span class="hljs-comment"># Series &#x53D8;&#x6210; DataFrame &#x7684;&#x4E00;&#x5217;&#xFF0C;&#x884C;&#x7D22;&#x5F15;&#x5C31;&#x662F;s&#x7684;&#x7D22;&#x5F15;&#xFF0C;&#x5217;&#x7D22;&#x5F15;&#x5C31;&#x662F;D&#x7684;&#x81EA;&#x589E;&#x7D22;&#x5F15;</span>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x4E00;&#x4E2A;&#x884C;&#x5217;&#x7D22;&#x5F15;&#x90FD;&#x5E26;name&#x7684;DataFrame&#x5BF9;&#x8C61;</span>
+data = pd.DataFrame(
+    np.arange(<span class="hljs-number">6</span>).reshape((<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)),
+    index=pd.Index([<span class="hljs-string">&apos;Ohio&apos;</span>,<span class="hljs-string">&apos;Colorado&apos;</span>], name=<span class="hljs-string">&apos;state&apos;</span>),
+    columns=pd.Index([<span class="hljs-string">&apos;one&apos;</span>, <span class="hljs-string">&apos;two&apos;</span>, <span class="hljs-string">&apos;three&apos;</span>], name=<span class="hljs-string">&apos;number&apos;</span>)
+)
+data
 </code></pre>
 <div>
 <style scoped>
@@ -569,30 +530,290 @@ dtype: int64
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
+      <th>number</th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+    </tr>
+    <tr>
+      <th>state</th>
       <th></th>
-      <th>0</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <th>Ohio</th>
+      <td>0</td>
+      <td>1</td>
       <td>2</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>Colorado</th>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python">data.index
+</code></pre>
+<pre><code>Index([&apos;Ohio&apos;, &apos;Colorado&apos;], dtype=&apos;object&apos;, name=&apos;state&apos;)
+</code></pre><pre><code class="lang-python">data.columns
+</code></pre>
+<pre><code>Index([&apos;one&apos;, &apos;two&apos;, &apos;three&apos;], dtype=&apos;object&apos;, name=&apos;number&apos;)
+</code></pre><h2 id="stack&#xFF1A;&#x5217;&#x8F6C;&#x884C;&#xFF0C;&#x5C06;&#x6570;&#x636E;&#x7684;&#x5217;&#x65CB;&#x8F6C;&#x4E3A;&#x884C;&#x7D22;&#x5F15;">stack&#xFF1A;&#x5217;&#x8F6C;&#x884C;&#xFF0C;&#x5C06;&#x6570;&#x636E;&#x7684;&#x5217;&#x201C;&#x65CB;&#x8F6C;&#x201D;&#x4E3A;&#x884C;&#x7D22;&#x5F15;</h2>
+<p>&#x5217;&#x7D22;&#x5F15;&#xFF0C;&#x9006;&#x65F6;&#x9488;&#x8F6C;&#x4E3A;&#x884C;&#x7D22;&#x5F15;</p>
+<pre><code class="lang-python">data
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>number</th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+    </tr>
+    <tr>
+      <th>state</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ohio</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Colorado</th>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python"><span class="hljs-comment"># &#x5217;&#x8F6C;&#x884C;&#xFF0C;stack&#x65B9;&#x6CD5;&#x5C06;&#x5217;&#x8F6C;&#x6362;&#x4E3A;&#x884C;&#xFF0C;&#x5F97;&#x5230;&#x4E00;&#x4E2A;Series</span>
+result = data.stack()
+result
+</code></pre>
+<pre><code>state     number
+Ohio      one       0
+          two       1
+          three     2
+Colorado  one       3
+          two       4
+          three     5
+dtype: int32
+</code></pre><h2 id="unstack&#xFF1A;&#x884C;&#x8F6C;&#x5217;&#xFF0C;&#x5C06;&#x6570;&#x636E;&#x7684;&#x884C;&#x65CB;&#x8F6C;&#x4E3A;&#x5217;">unstack&#xFF1A;&#x884C;&#x8F6C;&#x5217;&#xFF0C;&#x5C06;&#x6570;&#x636E;&#x7684;&#x884C;&#x201C;&#x65CB;&#x8F6C;&#x201D;&#x4E3A;&#x5217;</h2>
+<p> &#x5BF9;&#x5C42;&#x6B21;&#x5316;&#x7D22;&#x5F15;&#x7684;Series&#xFF0C;&#x53EF;&#x4EE5;&#x7528;unstack&#x5C06;&#x5176;&#x91CD;&#x6392;&#x4E3A;&#x4E00;&#x4E2A;DataFrame</p>
+<pre><code class="lang-python">result.unstack()
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>number</th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+    </tr>
+    <tr>
+      <th>state</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ohio</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Colorado</th>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python">data.unstack()  <span class="hljs-comment">#&#x5148;&#x628A;&#x822A;&#x7D22;&#x5F15;&#x987A;&#x65F6;&#x9488;&#x65CB;&#x8F6C;&#x63D2;&#x5165;&#x539F;&#x6765;&#x7684;&#x5217;&#x7D22;&#x5F15;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x5C06;&#x6574;&#x4E2A;Series&#x9006;&#x65F6;&#x9488;&#x65CB;&#x8F6C;&#xFF0C;&#x6454;&#x5012;&#xFF0C;&#x7ED3;&#x679C;</span>
+</code></pre>
+<pre><code>number  state   
+one     Ohio        0
+        Colorado    3
+two     Ohio        1
+        Colorado    4
+three   Ohio        2
+        Colorado    5
+dtype: int32
+</code></pre><pre><code class="lang-python"><span class="hljs-comment"># result.stack()   #&#x62A5;&#x9519;&#x3002;Series  &#x5BF9;&#x8C61;&#x6CA1;&#x6709;&#x5217;&#xFF0C;&#x6240;&#x4EE5;&#x6CA1;&#x6709;Stack&#xFF08;&#xFF09; &#x65B9;&#x6CD5;</span>
+</code></pre>
+<pre><code class="lang-python">result
+</code></pre>
+<pre><code>state     number
+Ohio      one       0
+          two       1
+          three     2
+Colorado  one       3
+          two       4
+          three     5
+dtype: int32
+</code></pre><h3 id="unstack&#x9ED8;&#x8BA4;&#x64CD;&#x4F5C;&#x7684;&#x662F;&#x6700;&#x5185;&#x5C42;&#xFF08;stack&#x4E5F;&#x662F;&#x5982;&#x6B64;&#xFF09;&#x3002;&#x4F20;&#x5165;&#x5206;&#x5C42;&#x7EA7;&#x522B;&#x7684;&#x7F16;&#x53F7;&#x6216;name&#x5373;&#x53EF;&#x5BF9;&#x5176;&#x5B83;&#x7EA7;&#x522B;&#x8FDB;&#x884C;unstack&#x64CD;&#x4F5C;">unstack&#x9ED8;&#x8BA4;&#x64CD;&#x4F5C;&#x7684;&#x662F;&#x6700;&#x5185;&#x5C42;&#xFF08;stack&#x4E5F;&#x662F;&#x5982;&#x6B64;&#xFF09;&#x3002;&#x4F20;&#x5165;&#x5206;&#x5C42;&#x7EA7;&#x522B;&#x7684;&#x7F16;&#x53F7;&#x6216;name&#x5373;&#x53EF;&#x5BF9;&#x5176;&#x5B83;&#x7EA7;&#x522B;&#x8FDB;&#x884C;unstack&#x64CD;&#x4F5C;</h3>
+<pre><code class="lang-python">result
+</code></pre>
+<pre><code>state     number
+Ohio      one       0
+          two       1
+          three     2
+Colorado  one       3
+          two       4
+          three     5
+dtype: int32
+</code></pre><pre><code class="lang-python">result.unstack()   <span class="hljs-comment">#&#x9ED8;&#x8BA4;&#x65CB;&#x8F6C;&#x6700;&#x91CC;&#x5C42;&#x7D22;&#x5F15;</span>
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>number</th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+    </tr>
+    <tr>
+      <th>state</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ohio</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Colorado</th>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python">result.unstack(<span class="hljs-number">0</span>)   <span class="hljs-comment">#&#x65CB;&#x8F6C;&#x7B2C;0&#x5C42;&#x7D22;&#x5F15;&#xFF0C;&#x6700;&#x5916;&#x5C42;</span>
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>state</th>
+      <th>Ohio</th>
+      <th>Colorado</th>
+    </tr>
+    <tr>
+      <th>number</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>one</th>
+      <td>0</td>
       <td>3</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>two</th>
+      <td>1</td>
       <td>4</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>three</th>
+      <td>2</td>
       <td>5</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>6</td>
     </tr>
   </tbody>
 </table>
@@ -601,19 +822,7 @@ dtype: int64
 
 
 
-<pre><code class="lang-python">a
-</code></pre>
-<pre><code>aaa
-0     3
-1     5
-2     8
-3    12
-4    14
-Name: &#x5F20;&#x4E09;, dtype: int64
-</code></pre><pre><code class="lang-python">pd.DataFrame(a)
-<span class="hljs-comment">#&#x5217;&#x7D22;&#x5F15;&#x662F;Series &#x7684;&#x547D;&#x540D;</span>
-
-<span class="hljs-comment"># &#x884C;&#x7D22;&#x5F15;&#x4E5F;&#x6709;&#x540D;&#x5B57;&#xFF1A;Serise &#x7684;index &#x547D;&#x540D;</span>
+<pre><code class="lang-python">result.unstack(<span class="hljs-string">&apos;state&apos;</span>)  <span class="hljs-comment"># &#x5199;&#x7D22;&#x5F15;name&#x4E5F;&#x884C;</span>
 </code></pre>
 <div>
 <style scoped>
@@ -632,56 +841,40 @@ Name: &#x5F20;&#x4E09;, dtype: int64
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
-      <th>&#x5F20;&#x4E09;</th>
+      <th>state</th>
+      <th>Ohio</th>
+      <th>Colorado</th>
     </tr>
     <tr>
-      <th>aaa</th>
+      <th>number</th>
+      <th></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <th>one</th>
+      <td>0</td>
       <td>3</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>two</th>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>three</th>
+      <td>2</td>
       <td>5</td>
     </tr>
-    <tr>
-      <th>2</th>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>12</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>14</td>
-    </tr>
   </tbody>
 </table>
 </div>
 
 
 
-<h1 id="dataframe&#x7684;&#x547D;&#x540D;">DataFrame&#x7684;&#x547D;&#x540D;</h1>
-<p>&#x5C42;&#x6B21;&#x5316;&#x7D22;&#x5F15;</p>
-<pre><code class="lang-python">av = [
-    [<span class="hljs-string">&apos;&#x5C0F;&#x660E;&apos;</span>,<span class="hljs-string">&apos;male&apos;</span>,<span class="hljs-number">18</span>,<span class="hljs-number">170</span>,<span class="hljs-number">60</span>,<span class="hljs-string">&apos;&#x5317;&#x4EAC;&#x6D77;&#x6DC0;&apos;</span>,<span class="hljs-number">61</span>],
-    [<span class="hljs-string">&apos;&#x5C0F;&#x534E;&apos;</span>,<span class="hljs-string">&apos;female&apos;</span>,<span class="hljs-number">28</span>,<span class="hljs-number">160</span>,<span class="hljs-number">50</span>,<span class="hljs-string">&apos;&#x4E0A;&#x6D77;&#x9759;&#x5B89;&apos;</span>,<span class="hljs-number">74</span>],
-    [<span class="hljs-string">&apos;&#x5C0F;&#x7EA2;&apos;</span>,<span class="hljs-string">&apos;female&apos;</span>,<span class="hljs-number">22</span>,<span class="hljs-number">175</span>,<span class="hljs-number">64</span>,<span class="hljs-string">&apos;&#x5E7F;&#x5DDE;&#x5929;&#x6CB3;&apos;</span>,<span class="hljs-number">59</span>],
-    [<span class="hljs-string">&apos;&#x5C0F;&#x9751;&apos;</span>,<span class="hljs-string">&apos;male&apos;</span>,<span class="hljs-number">31</span>,<span class="hljs-number">182</span>,<span class="hljs-number">80</span>,<span class="hljs-string">&apos;&#x6DF1;&#x5733;&#x5357;&#x5C71;&apos;</span>,<span class="hljs-number">82</span>],
-    [<span class="hljs-string">&apos;&#x5C0F;&#x5170;&apos;</span>,<span class="hljs-string">&apos;female&apos;</span>,<span class="hljs-number">25</span>,<span class="hljs-number">165</span>,<span class="hljs-number">55</span>,<span class="hljs-string">&apos;&#x676D;&#x5DDE;&#x897F;&#x6E56;&apos;</span>,<span class="hljs-number">98</span>],
-]
-b = pd.DataFrame(
-    av,
-    index=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>],
-    columns=[<span class="hljs-string">&apos;name&apos;</span>,<span class="hljs-string">&apos;sex&apos;</span>,<span class="hljs-string">&apos;age&apos;</span>,<span class="hljs-string">&apos;heigh&apos;</span>,<span class="hljs-string">&apos;weight&apos;</span>,<span class="hljs-string">&apos;address&apos;</span>,<span class="hljs-string">&apos;grade&apos;</span>]
-)
-b
+
+<pre><code class="lang-python">data.unstack().unstack()  <span class="hljs-comment">#&#x53D8;&#x4E3A;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x8868;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x662F;&#x5C06;&#x539F;&#x8868;&#x884C;&#x548C;&#x5217;&#x4EA4;&#x6362;</span>
 </code></pre>
 <div>
 <style scoped>
@@ -700,66 +893,31 @@ b
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
+      <th>state</th>
+      <th>Ohio</th>
+      <th>Colorado</th>
+    </tr>
+    <tr>
+      <th>number</th>
       <th></th>
-      <th>name</th>
-      <th>sex</th>
-      <th>age</th>
-      <th>heigh</th>
-      <th>weight</th>
-      <th>address</th>
-      <th>grade</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>&#x5C0F;&#x660E;</td>
-      <td>male</td>
-      <td>18</td>
-      <td>170</td>
-      <td>60</td>
-      <td>&#x5317;&#x4EAC;&#x6D77;&#x6DC0;</td>
-      <td>61</td>
+      <th>one</th>
+      <td>0</td>
+      <td>3</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>&#x5C0F;&#x534E;</td>
-      <td>female</td>
-      <td>28</td>
-      <td>160</td>
-      <td>50</td>
-      <td>&#x4E0A;&#x6D77;&#x9759;&#x5B89;</td>
-      <td>74</td>
+      <th>two</th>
+      <td>1</td>
+      <td>4</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>&#x5C0F;&#x7EA2;</td>
-      <td>female</td>
-      <td>22</td>
-      <td>175</td>
-      <td>64</td>
-      <td>&#x5E7F;&#x5DDE;&#x5929;&#x6CB3;</td>
-      <td>59</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>&#x5C0F;&#x9751;</td>
-      <td>male</td>
-      <td>31</td>
-      <td>182</td>
-      <td>80</td>
-      <td>&#x6DF1;&#x5733;&#x5357;&#x5C71;</td>
-      <td>82</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>&#x5C0F;&#x5170;</td>
-      <td>female</td>
-      <td>25</td>
-      <td>165</td>
-      <td>55</td>
-      <td>&#x676D;&#x5DDE;&#x897F;&#x6E56;</td>
-      <td>98</td>
+      <th>three</th>
+      <td>2</td>
+      <td>5</td>
     </tr>
   </tbody>
 </table>
@@ -767,526 +925,28 @@ b
 
 
 
+<p>&#x5C0F;&#x603B;&#x7ED3;&#xFF1A;</p>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x5C06;&#x4E00;&#x4E2A;DataFrame&#x7C7B;&#x578B;&#x7684;&#x5C42;&#x6B21;&#x5316;&#x7D22;&#x5F15;&#x8FDB;&#x884C;stack&#x6216;&#x8005;unstack<ul>
+<li>data.stack()</li>
+<li>data.unstack()</li>
+</ul>
+</li>
+<li>&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x5C06;&#x5176;stack&#x6216;&#x8005;unstack&#x4E4B;&#x540E;&#x5F97;&#x5230;&#x7684;Series&#x7C7B;&#x578B;&#x8FDB;&#x884C;stack&#x64CD;&#x4F5C;<ul>
+<li>data.stack&#xFF08;&#xFF09;&#x4E4B;&#x540E;<ul>
+<li>data.stack().unstack()&#x5373;&#x4E3A;&#x6062;&#x590D;&#x539F;&#x683C;&#x5F0F;</li>
+<li>data.stack().stack() &#x4E0D;&#x80FD;&#x8FDB;&#x884C;&#x6B64;&#x64CD;&#x4F5C;&#xFF0C;&#x4F1A;&#x62A5;&#x9519;</li>
+</ul>
+</li>
+<li>data.unstack()&#x4E4B;&#x540E;<ul>
+<li>data.unstack().unstack()&#x53D8;&#x4E3A;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x8868;&#xFF0C;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5C06;&#x539F;&#x8868;&#x884C;&#x548C;&#x5217;&#x4EA4;&#x6362;</li>
+<li>data.unstack().stack() &#x4E0D;&#x80FD;&#x8FDB;&#x884C;&#x6B64;&#x64CD;&#x4F5C;&#xFF0C;&#x4F1A;&#x62A5;&#x9519;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-<pre><code class="lang-python"><span class="hljs-comment"># &#x884C;&#x7D22;&#x5F15;&#x547D;&#x540D; </span>
-
-b.index.name 
-b.index.name = <span class="hljs-string">&apos;&#x5B66;&#x53F7;&apos;</span>
-b
-</code></pre>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>&#x5C5E;&#x6027;</th>
-      <th>name</th>
-      <th>sex</th>
-      <th>age</th>
-      <th>heigh</th>
-      <th>weight</th>
-      <th>address</th>
-      <th>grade</th>
-    </tr>
-    <tr>
-      <th>&#x5B66;&#x53F7;</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>&#x5C0F;&#x660E;</td>
-      <td>male</td>
-      <td>18</td>
-      <td>170</td>
-      <td>60</td>
-      <td>&#x5317;&#x4EAC;&#x6D77;&#x6DC0;</td>
-      <td>61</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>&#x5C0F;&#x534E;</td>
-      <td>female</td>
-      <td>28</td>
-      <td>160</td>
-      <td>50</td>
-      <td>&#x4E0A;&#x6D77;&#x9759;&#x5B89;</td>
-      <td>74</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>&#x5C0F;&#x7EA2;</td>
-      <td>female</td>
-      <td>22</td>
-      <td>175</td>
-      <td>64</td>
-      <td>&#x5E7F;&#x5DDE;&#x5929;&#x6CB3;</td>
-      <td>59</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>&#x5C0F;&#x9751;</td>
-      <td>male</td>
-      <td>31</td>
-      <td>182</td>
-      <td>80</td>
-      <td>&#x6DF1;&#x5733;&#x5357;&#x5C71;</td>
-      <td>82</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>&#x5C0F;&#x5170;</td>
-      <td>female</td>
-      <td>25</td>
-      <td>165</td>
-      <td>55</td>
-      <td>&#x676D;&#x5DDE;&#x897F;&#x6E56;</td>
-      <td>98</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-<pre><code class="lang-python"><span class="hljs-comment"># &#x5217;&#x7D22;&#x5F15;&#x547D;&#x540D;</span>
-b.columns.name
-b.columns.name = <span class="hljs-string">&apos;&#x5C5E;&#x6027;&apos;</span>
-b
-</code></pre>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>&#x5C5E;&#x6027;</th>
-      <th>name</th>
-      <th>sex</th>
-      <th>age</th>
-      <th>heigh</th>
-      <th>weight</th>
-      <th>address</th>
-      <th>grade</th>
-    </tr>
-    <tr>
-      <th>&#x5B66;&#x53F7;</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>&#x5C0F;&#x660E;</td>
-      <td>male</td>
-      <td>18</td>
-      <td>170</td>
-      <td>60</td>
-      <td>&#x5317;&#x4EAC;&#x6D77;&#x6DC0;</td>
-      <td>61</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>&#x5C0F;&#x534E;</td>
-      <td>female</td>
-      <td>28</td>
-      <td>160</td>
-      <td>50</td>
-      <td>&#x4E0A;&#x6D77;&#x9759;&#x5B89;</td>
-      <td>74</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>&#x5C0F;&#x7EA2;</td>
-      <td>female</td>
-      <td>22</td>
-      <td>175</td>
-      <td>64</td>
-      <td>&#x5E7F;&#x5DDE;&#x5929;&#x6CB3;</td>
-      <td>59</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>&#x5C0F;&#x9751;</td>
-      <td>male</td>
-      <td>31</td>
-      <td>182</td>
-      <td>80</td>
-      <td>&#x6DF1;&#x5733;&#x5357;&#x5C71;</td>
-      <td>82</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>&#x5C0F;&#x5170;</td>
-      <td>female</td>
-      <td>25</td>
-      <td>165</td>
-      <td>55</td>
-      <td>&#x676D;&#x5DDE;&#x897F;&#x6E56;</td>
-      <td>98</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-<pre><code class="lang-python">b.index
-</code></pre>
-<pre><code>Int64Index([1, 2, 3, 4, 5], dtype=&apos;int64&apos;, name=&apos;&#x5B66;&#x53F7;&apos;)
-</code></pre><pre><code class="lang-python">b.columns
-</code></pre>
-<pre><code>Index([&apos;name&apos;, &apos;sex&apos;, &apos;age&apos;, &apos;heigh&apos;, &apos;weight&apos;, &apos;address&apos;, &apos;grade&apos;], dtype=&apos;object&apos;, name=&apos;&#x5C5E;&#x6027;&apos;)
-</code></pre><hr>
-<h2 id="pandas-&#x5BF9;&#x8C61;&#x7684;&#x904D;&#x5386;">Pandas &#x5BF9;&#x8C61;&#x7684;&#x904D;&#x5386;</h2>
-<hr>
-<p>Pandas&#x7684;&#x5BF9;&#x8C61;&#x4E00;&#x822C;&#x4E0D;&#x9700;&#x8981;&#x904D;&#x5386;,&#x5076;&#x5C14;&#x6709;&#x9700;&#x6C42;</p>
-<pre><code class="lang-python">a
-</code></pre>
-<pre><code>aaa
-0     3
-1     5
-2     8
-3    12
-4    14
-Name: &#x5F20;&#x4E09;, dtype: int64
-</code></pre><h3 id="series&#x904D;&#x5386;">Series&#x904D;&#x5386;</h3>
-<pre><code class="lang-python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> a:
-    print(i)
-</code></pre>
-<pre><code>3
-5
-8
-12
-14
-</code></pre><pre><code class="lang-python">b
-</code></pre>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>&#x5C5E;&#x6027;</th>
-      <th>name</th>
-      <th>sex</th>
-      <th>age</th>
-      <th>heigh</th>
-      <th>weight</th>
-      <th>address</th>
-      <th>grade</th>
-    </tr>
-    <tr>
-      <th>&#x5B66;&#x53F7;</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>&#x5C0F;&#x660E;</td>
-      <td>male</td>
-      <td>18</td>
-      <td>170</td>
-      <td>60</td>
-      <td>&#x5317;&#x4EAC;&#x6D77;&#x6DC0;</td>
-      <td>61</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>&#x5C0F;&#x534E;</td>
-      <td>female</td>
-      <td>28</td>
-      <td>160</td>
-      <td>50</td>
-      <td>&#x4E0A;&#x6D77;&#x9759;&#x5B89;</td>
-      <td>74</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>&#x5C0F;&#x7EA2;</td>
-      <td>female</td>
-      <td>22</td>
-      <td>175</td>
-      <td>64</td>
-      <td>&#x5E7F;&#x5DDE;&#x5929;&#x6CB3;</td>
-      <td>59</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>&#x5C0F;&#x9751;</td>
-      <td>male</td>
-      <td>31</td>
-      <td>182</td>
-      <td>80</td>
-      <td>&#x6DF1;&#x5733;&#x5357;&#x5C71;</td>
-      <td>82</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>&#x5C0F;&#x5170;</td>
-      <td>female</td>
-      <td>25</td>
-      <td>165</td>
-      <td>55</td>
-      <td>&#x676D;&#x5DDE;&#x897F;&#x6E56;</td>
-      <td>98</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-<h3 id="dataframe&#x904D;&#x5386;">DataFrame&#x904D;&#x5386;</h3>
-<pre><code class="lang-python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> b:
-    print(i)  <span class="hljs-comment">#&#x5217;&#x7D22;&#x5F15;</span>
-</code></pre>
-<pre><code>name
-sex
-age
-heigh
-weight
-address
-grade
-</code></pre><pre><code class="lang-python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> b:
-    print(b[i])  <span class="hljs-comment">#&#x5217;&#x503C;</span>
-</code></pre>
-<pre><code>&#x5B66;&#x53F7;
-1    &#x5C0F;&#x660E;
-2    &#x5C0F;&#x534E;
-3    &#x5C0F;&#x7EA2;
-4    &#x5C0F;&#x9751;
-5    &#x5C0F;&#x5170;
-Name: name, dtype: object
-&#x5B66;&#x53F7;
-1      male
-2    female
-3    female
-4      male
-5    female
-Name: sex, dtype: object
-&#x5B66;&#x53F7;
-1    18
-2    28
-3    22
-4    31
-5    25
-Name: age, dtype: int64
-&#x5B66;&#x53F7;
-1    170
-2    160
-3    175
-4    182
-5    165
-Name: heigh, dtype: int64
-&#x5B66;&#x53F7;
-1    60
-2    50
-3    64
-4    80
-5    55
-Name: weight, dtype: int64
-&#x5B66;&#x53F7;
-1    &#x5317;&#x4EAC;&#x6D77;&#x6DC0;
-2    &#x4E0A;&#x6D77;&#x9759;&#x5B89;
-3    &#x5E7F;&#x5DDE;&#x5929;&#x6CB3;
-4    &#x6DF1;&#x5733;&#x5357;&#x5C71;
-5    &#x676D;&#x5DDE;&#x897F;&#x6E56;
-Name: address, dtype: object
-&#x5B66;&#x53F7;
-1    61
-2    74
-3    59
-4    82
-5    98
-Name: grade, dtype: int64
-</code></pre><pre><code class="lang-python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> b:
-    print(type(b[i]))  <span class="hljs-comment">#&#x5217;&#x503C;&#x4E3A;Series&#x7C7B;&#x578B;</span>
-</code></pre>
-<pre><code>&lt;class &apos;pandas.core.series.Series&apos;&gt;
-&lt;class &apos;pandas.core.series.Series&apos;&gt;
-&lt;class &apos;pandas.core.series.Series&apos;&gt;
-&lt;class &apos;pandas.core.series.Series&apos;&gt;
-&lt;class &apos;pandas.core.series.Series&apos;&gt;
-&lt;class &apos;pandas.core.series.Series&apos;&gt;
-&lt;class &apos;pandas.core.series.Series&apos;&gt;
-</code></pre><pre><code class="lang-python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> b:
-    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> b[i]:
-        print(j)  <span class="hljs-comment">#&#x5355;&#x5143;&#x683C;&#x503C;</span>
-        print(type(j))  <span class="hljs-comment">#&#x5355;&#x503C;</span>
-</code></pre>
-<pre><code>&#x5C0F;&#x660E;
-&lt;class &apos;str&apos;&gt;
-&#x5C0F;&#x534E;
-&lt;class &apos;str&apos;&gt;
-&#x5C0F;&#x7EA2;
-&lt;class &apos;str&apos;&gt;
-&#x5C0F;&#x9751;
-&lt;class &apos;str&apos;&gt;
-&#x5C0F;&#x5170;
-&lt;class &apos;str&apos;&gt;
-male
-&lt;class &apos;str&apos;&gt;
-female
-&lt;class &apos;str&apos;&gt;
-female
-&lt;class &apos;str&apos;&gt;
-male
-&lt;class &apos;str&apos;&gt;
-female
-&lt;class &apos;str&apos;&gt;
-18
-&lt;class &apos;int&apos;&gt;
-28
-&lt;class &apos;int&apos;&gt;
-22
-&lt;class &apos;int&apos;&gt;
-31
-&lt;class &apos;int&apos;&gt;
-25
-&lt;class &apos;int&apos;&gt;
-170
-&lt;class &apos;int&apos;&gt;
-160
-&lt;class &apos;int&apos;&gt;
-175
-&lt;class &apos;int&apos;&gt;
-182
-&lt;class &apos;int&apos;&gt;
-165
-&lt;class &apos;int&apos;&gt;
-60
-&lt;class &apos;int&apos;&gt;
-50
-&lt;class &apos;int&apos;&gt;
-64
-&lt;class &apos;int&apos;&gt;
-80
-&lt;class &apos;int&apos;&gt;
-55
-&lt;class &apos;int&apos;&gt;
-&#x5317;&#x4EAC;&#x6D77;&#x6DC0;
-&lt;class &apos;str&apos;&gt;
-&#x4E0A;&#x6D77;&#x9759;&#x5B89;
-&lt;class &apos;str&apos;&gt;
-&#x5E7F;&#x5DDE;&#x5929;&#x6CB3;
-&lt;class &apos;str&apos;&gt;
-&#x6DF1;&#x5733;&#x5357;&#x5C71;
-&lt;class &apos;str&apos;&gt;
-&#x676D;&#x5DDE;&#x897F;&#x6E56;
-&lt;class &apos;str&apos;&gt;
-61
-&lt;class &apos;int&apos;&gt;
-74
-&lt;class &apos;int&apos;&gt;
-59
-&lt;class &apos;int&apos;&gt;
-82
-&lt;class &apos;int&apos;&gt;
-98
-&lt;class &apos;int&apos;&gt;
-</code></pre><h3 id="&#x7528;pandas&#x4E13;&#x6709;&#x51FD;&#x6570;&#x904D;&#x5386;">&#x7528;Pandas&#x4E13;&#x6709;&#x51FD;&#x6570;&#x904D;&#x5386;</h3>
-<pre><code class="lang-python"><span class="hljs-keyword">for</span> index,rows <span class="hljs-keyword">in</span> b.iterrows():
-    <span class="hljs-comment">#print(index)   #&#x884C;&#x7D22;&#x5F15;</span>
-    <span class="hljs-comment">#print(rows)  #&#x5217;</span>
-   <span class="hljs-comment">#print(type(rows))</span>
-   <span class="hljs-comment"># print(rows[&apos;name&apos;])  #&#x67E5;&#x8BE2;&#x6307;&#x5B9A;&#x5217;&#x7684;&#x5355;&#x5143;&#x683C;&#x503C;</span>
-    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> rows:
-        print(i)  <span class="hljs-comment">#&#x904D;&#x5386;&#x6240;&#x6709;&#x5355;&#x5143;&#x683C;&#x503C;</span>
-        <span class="hljs-comment">#print(type(i))</span>
-</code></pre>
-<pre><code>&#x5C0F;&#x660E;
-male
-18
-170
-60
-&#x5317;&#x4EAC;&#x6D77;&#x6DC0;
-61
-&#x5C0F;&#x534E;
-female
-28
-160
-50
-&#x4E0A;&#x6D77;&#x9759;&#x5B89;
-74
-&#x5C0F;&#x7EA2;
-female
-22
-175
-64
-&#x5E7F;&#x5DDE;&#x5929;&#x6CB3;
-59
-&#x5C0F;&#x9751;
-male
-31
-182
-80
-&#x6DF1;&#x5733;&#x5357;&#x5C71;
-82
-&#x5C0F;&#x5170;
-female
-25
-165
-55
-&#x676D;&#x5DDE;&#x897F;&#x6E56;
-98
-</code></pre>
                     
                     </section>
                 
@@ -1296,10 +956,10 @@ female
         </div>
 
         
-        <a href="../数据分析库的操作/Pandas对象的数据操作：增删改查.html" class="navigation navigation-prev " aria-label="Previous page: Pandas对象的数据操作：增删改查"><i class="fa fa-angle-left"></i></a>
+        <a href="../数据分析库的操作/Pandas分组聚合2.html" class="navigation navigation-prev " aria-label="Previous page: Pandas分组聚合2"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../数据分析库的操作/1Pandas数据存取.html" class="navigation navigation-next " aria-label="Next page: Pandas数据存取"><i class="fa fa-angle-right"></i></a>
+        <a href="../数据分析库的操作/2透视表和交叉表.html" class="navigation navigation-next " aria-label="Next page: 透视表和交叉表"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

@@ -9,7 +9,7 @@
     * [交互式编辑器-JupyterNotebook](python数据分析环境和工具/交互式编辑器-JupyterNotebook.md)
     * [Gitbook文档](python数据分析环境和工具/Gitbook文档.md)
 
-* [数据分析库的操作]()
+* [数据分析库-Pandas]()
     * [pandas](数据分析库的初步认识/Pandas创建.md)
     * [Series](数据分析库的初步认识/Series创建.md)
     * [DataFrame对象-创建](数据分析库的初步认识/DataFrame创建.md)
@@ -24,8 +24,9 @@
         * [Pandas数据存取](数据分析库的操作/1Pandas数据存取.md)
         * [Pandas数据运算](数据分析库的操作/2Pandas数据运算.md)
         * [Pandas分组聚合1](数据分析库的操作/3Pandas分组聚合1.md)
-
-
+        * [Pandas分组聚合2](数据分析库的操作/Pandas分组聚合2.md)
+    * [Pandas数据规整-重塑和轴向旋转](数据分析库的操作/Pandas数据规整-重塑和轴向旋转.md)
+        * [透视表和交叉表](数据分析库的操作/2透视表和交叉表.md)
 
 
 
