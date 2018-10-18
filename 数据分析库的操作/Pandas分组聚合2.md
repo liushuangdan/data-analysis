@@ -1,9 +1,4 @@
 
-Pandas分组聚合2
-===
-
----
-
 ### 根据层次化索引的级别分组¶
 要根据层次化索引的级别分组，使用level关键字传递级别序号或名字
 
@@ -3434,6 +3429,12 @@ df
 </div>
 
 
+
+**排序知识**
+
+a.sort_values()  **正序**
+
+a.sort_values(ascending=False)   **倒序**
 
 
 ```python
