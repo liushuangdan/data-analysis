@@ -1,0 +1,2045 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Pandas数据规整-转换 | Python 数据分析学习目录</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../数据分析库的操作/13Pandas数据规整-重塑和轴向旋转.html" />
+    
+    
+    <link rel="prev" href="../数据分析库的操作/10Pandas数据规整-清理.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="4.4.7"
+        data-chapter-title="Pandas数据规整-转换"
+        data-filepath="数据分析库的操作/11Pandas数据规整-转换.md"
+        data-basepath=".."
+        data-revision="Mon Oct 22 2018 22:23:01 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        数据分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="Python数据分析序言/内容序言.html">
+            
+                
+                    <a href="../Python数据分析序言/内容序言.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Python数据分析内容
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" >
+            
+            <span><b>2.</b> python数据分析环境和工具</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="python数据分析环境和工具/Python数据课程软件和环境安装.html">
+            
+                
+                    <a href="../python数据分析环境和工具/Python数据课程软件和环境安装.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Python数据课程 软件和环境安装
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="python数据分析环境和工具/python发行版.html">
+            
+                
+                    <a href="../python数据分析环境和工具/python发行版.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        python发行版
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="python数据分析环境和工具/Markdown.html">
+            
+                
+                    <a href="../python数据分析环境和工具/Markdown.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Markdown
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="python数据分析环境和工具/Markdown语法.html">
+            
+                
+                    <a href="../python数据分析环境和工具/Markdown语法.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Markdown语法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="python数据分析环境和工具/交互式编辑器-JupyterNotebook.html">
+            
+                
+                    <a href="../python数据分析环境和工具/交互式编辑器-JupyterNotebook.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        交互式编辑器-JupyterNotebook
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="python数据分析环境和工具/Gitbook文档.html">
+            
+                
+                    <a href="../python数据分析环境和工具/Gitbook文档.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        Gitbook文档
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" >
+            
+            <span><b>3.</b> 数据分析库-Pandas</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="数据分析库的初步认识/Pandas创建.html">
+            
+                
+                    <a href="../数据分析库的初步认识/Pandas创建.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        pandas
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="数据分析库的初步认识/Series创建.html">
+            
+                
+                    <a href="../数据分析库的初步认识/Series创建.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        Series
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="数据分析库的初步认识/DataFrame创建.html">
+            
+                
+                    <a href="../数据分析库的初步认识/DataFrame创建.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        DataFrame对象-创建
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" >
+            
+            <span><b>4.</b> 数据分析库的操作</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="数据分析库的操作/1DataFrame查询1-整体.html">
+            
+                
+                    <a href="../数据分析库的操作/1DataFrame查询1-整体.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        DataFrame查询1-整体
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="数据分析库的操作/2DataFrame查询2-专用查询.html">
+            
+                
+                    <a href="../数据分析库的操作/2DataFrame查询2-专用查询.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        DataFrame查询2-专用查询
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="数据分析库的操作/3DataFrame查询3-专有查询：过滤查询.html">
+            
+                
+                    <a href="../数据分析库的操作/3DataFrame查询3-专有查询：过滤查询.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        DataFrame查询3-专有查询：过滤查询
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="数据分析库的操作/4Pandas对象的数据操作：增删改查.html">
+            
+                
+                    <a href="../数据分析库的操作/4Pandas对象的数据操作：增删改查.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        Pandas对象的数据操作：增删改查
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="数据分析库的操作/5Pandas数据操作：其他操作.html">
+            
+                
+                    <a href="../数据分析库的操作/5Pandas数据操作：其他操作.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.1.</b>
+                        
+                        Pandas数据操作：其他操作
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="数据分析库的操作/6Pandas数据存取.html">
+            
+                
+                    <a href="../数据分析库的操作/6Pandas数据存取.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.2.</b>
+                        
+                        Pandas数据存取
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.3" data-path="数据分析库的操作/7Pandas数据运算.html">
+            
+                
+                    <a href="../数据分析库的操作/7Pandas数据运算.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.3.</b>
+                        
+                        Pandas数据运算
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.3.1" data-path="数据分析库的操作/7.1Pandas数据运算拓展.html">
+            
+                
+                    <a href="../数据分析库的操作/7.1Pandas数据运算拓展.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.3.1.</b>
+                        
+                        Pandas数据运算-拓展
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.4" data-path="数据分析库的操作/8Pandas分组聚合1.html">
+            
+                
+                    <a href="../数据分析库的操作/8Pandas分组聚合1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.4.</b>
+                        
+                        Pandas分组聚合1
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.5" data-path="数据分析库的操作/9Pandas分组聚合2.html">
+            
+                
+                    <a href="../数据分析库的操作/9Pandas分组聚合2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.5.</b>
+                        
+                        Pandas分组聚合2
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.6" data-path="数据分析库的操作/10Pandas数据规整-清理.html">
+            
+                
+                    <a href="../数据分析库的操作/10Pandas数据规整-清理.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.6.</b>
+                        
+                        Pandas数据规整-清理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.4.7" data-path="数据分析库的操作/11Pandas数据规整-转换.html">
+            
+                
+                    <a href="../数据分析库的操作/11Pandas数据规整-转换.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.7.</b>
+                        
+                        Pandas数据规整-转换
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="数据分析库的操作/13Pandas数据规整-重塑和轴向旋转.html">
+            
+                
+                    <a href="../数据分析库的操作/13Pandas数据规整-重塑和轴向旋转.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        Pandas数据规整-重塑和轴向旋转
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="数据分析库的操作/13.1透视表和交叉表.html">
+            
+                
+                    <a href="../数据分析库的操作/13.1透视表和交叉表.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.1.</b>
+                        
+                        透视表和交叉表
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="Python可视化/绘图库-Matplotlib.html">
+            
+                
+                    <a href="../Python可视化/绘图库-Matplotlib.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Python可视化
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="Python可视化/绘图库-Matplotlib/Matplotlib常见图表.html">
+            
+                
+                    <a href="../Python可视化/绘图库-Matplotlib/Matplotlib常见图表.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Matplotlib常见图表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="Python可视化/绘图库-Matplotlib/Matplotlib常见设置和操作.html">
+            
+                
+                    <a href="../Python可视化/绘图库-Matplotlib/Matplotlib常见设置和操作.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Matplotlib常见设置和操作
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="数据分析必备知识点/数据分析必备知识点汇集.html">
+            
+                
+                    <a href="../数据分析必备知识点/数据分析必备知识点汇集.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        数据分析必备知识点
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Python 数据分析学习目录</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <hr>
+<h1 id="pandas&#x6570;&#x636E;&#x89C4;&#x6574;--&#x8F6C;&#x6362;">Pandas&#x6570;&#x636E;&#x89C4;&#x6574; - &#x8F6C;&#x6362;</h1>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+</code></pre>
+<h1 id="pandas&#x6570;&#x636E;&#x6392;&#x5E8F;">Pandas&#x6570;&#x636E;&#x6392;&#x5E8F;</h1>
+<p>.sort_index() &#x5728;&#x6307;&#x5B9A;&#x8F74;&#x4E0A;&#x6839;&#x636E;&#x7D22;&#x5F15;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF0C;&#x7D22;&#x5F15;&#x6392;&#x5E8F;&#x540E;&#x5185;&#x5BB9;&#x4F1A;&#x8DDF;&#x968F;&#x6392;&#x5E8F;</p>
+<pre><code class="lang-python">b = pd.DataFrame(np.arange(<span class="hljs-number">20</span>).reshape(<span class="hljs-number">4</span>,<span class="hljs-number">5</span>),index=[<span class="hljs-string">&apos;c&apos;</span>,<span class="hljs-string">&apos;a&apos;</span>,<span class="hljs-string">&apos;d&apos;</span>,<span class="hljs-string">&apos;b&apos;</span>])
+b
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>c</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>15</td>
+      <td>16</td>
+      <td>17</td>
+      <td>18</td>
+      <td>19</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<h2 id="sortindex-&#x6309;&#x7D22;&#x5F15;&#x6392;&#x5E8F;">sort_index() &#x6309;&#x7D22;&#x5F15;&#x6392;&#x5E8F;</h2>
+<pre><code class="lang-python">b.sort_index()  <span class="hljs-comment"># &#x9ED8;&#x8BA4;&#x6309;&#x884C;&#x7D22;&#x5F15;&#x6392;&#x5E8F;&#xFF0C;&#x9ED8;&#x8BA4;&#x5347;&#x5E8F;</span>
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>15</td>
+      <td>16</td>
+      <td>17</td>
+      <td>18</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python">b.sort_index(axis=<span class="hljs-number">1</span>, ascending=<span class="hljs-keyword">False</span>)  <span class="hljs-comment"># &#x6309;&#x5217;&#x7D22;&#x5F15;&#x6392;&#x5E8F;&#xFF0C;&#x964D;&#x5E8F;</span>
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>4</th>
+      <th>3</th>
+      <th>2</th>
+      <th>1</th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>c</th>
+      <td>4</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>9</td>
+      <td>8</td>
+      <td>7</td>
+      <td>6</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>14</td>
+      <td>13</td>
+      <td>12</td>
+      <td>11</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>19</td>
+      <td>18</td>
+      <td>17</td>
+      <td>16</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<h2 id="sortvalues-&#x6309;&#x503C;&#x6392;&#x5E8F;">sort_values() &#x6309;&#x503C;&#x6392;&#x5E8F;</h2>
+<pre><code class="lang-python">dates = pd.date_range(<span class="hljs-string">&apos;20130101&apos;</span>, periods = <span class="hljs-number">10</span>)
+dates
+df = pd.DataFrame(np.random.randn(<span class="hljs-number">10</span>,<span class="hljs-number">4</span>), index = dates, columns = [<span class="hljs-string">&apos;A&apos;</span>,<span class="hljs-string">&apos;B&apos;</span>,<span class="hljs-string">&apos;C&apos;</span>,<span class="hljs-string">&apos;D&apos;</span>])
+df
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2013-01-01</th>
+      <td>-0.103959</td>
+      <td>-0.224066</td>
+      <td>0.053059</td>
+      <td>0.290960</td>
+    </tr>
+    <tr>
+      <th>2013-01-02</th>
+      <td>-0.881603</td>
+      <td>0.828593</td>
+      <td>0.417493</td>
+      <td>0.165275</td>
+    </tr>
+    <tr>
+      <th>2013-01-03</th>
+      <td>-0.724801</td>
+      <td>0.383705</td>
+      <td>-1.284566</td>
+      <td>1.446194</td>
+    </tr>
+    <tr>
+      <th>2013-01-04</th>
+      <td>-0.390799</td>
+      <td>0.031603</td>
+      <td>-0.640422</td>
+      <td>1.509536</td>
+    </tr>
+    <tr>
+      <th>2013-01-05</th>
+      <td>-0.528242</td>
+      <td>1.082984</td>
+      <td>-0.683790</td>
+      <td>1.817270</td>
+    </tr>
+    <tr>
+      <th>2013-01-06</th>
+      <td>-0.209014</td>
+      <td>2.067236</td>
+      <td>-1.189164</td>
+      <td>-2.576792</td>
+    </tr>
+    <tr>
+      <th>2013-01-07</th>
+      <td>0.858301</td>
+      <td>0.897186</td>
+      <td>2.471595</td>
+      <td>-0.266703</td>
+    </tr>
+    <tr>
+      <th>2013-01-08</th>
+      <td>-1.481403</td>
+      <td>-1.592341</td>
+      <td>0.433450</td>
+      <td>0.224229</td>
+    </tr>
+    <tr>
+      <th>2013-01-09</th>
+      <td>0.429110</td>
+      <td>0.397640</td>
+      <td>-0.442668</td>
+      <td>0.297924</td>
+    </tr>
+    <tr>
+      <th>2013-01-10</th>
+      <td>-1.537641</td>
+      <td>1.623557</td>
+      <td>0.052487</td>
+      <td>0.846663</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python"><span class="hljs-comment"># &#x9ED8;&#x8BA4;&#x6309;&#x884C;&#x6392;&#x5E8F;&#xFF08;&#x8FD9;&#x4E00;&#x5217;&#x7684;&#x6240;&#x6709;&#x884C;&#xFF09;</span>
+df.sort_values(by=<span class="hljs-string">&apos;A&apos;</span>)  <span class="hljs-comment"># &#x6307;&#x5B9A;&#x6392;&#x5E8F;&#x57FA;&#x51C6;&#x5217;</span>
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2013-01-10</th>
+      <td>-1.537641</td>
+      <td>1.623557</td>
+      <td>0.052487</td>
+      <td>0.846663</td>
+    </tr>
+    <tr>
+      <th>2013-01-08</th>
+      <td>-1.481403</td>
+      <td>-1.592341</td>
+      <td>0.433450</td>
+      <td>0.224229</td>
+    </tr>
+    <tr>
+      <th>2013-01-02</th>
+      <td>-0.881603</td>
+      <td>0.828593</td>
+      <td>0.417493</td>
+      <td>0.165275</td>
+    </tr>
+    <tr>
+      <th>2013-01-03</th>
+      <td>-0.724801</td>
+      <td>0.383705</td>
+      <td>-1.284566</td>
+      <td>1.446194</td>
+    </tr>
+    <tr>
+      <th>2013-01-05</th>
+      <td>-0.528242</td>
+      <td>1.082984</td>
+      <td>-0.683790</td>
+      <td>1.817270</td>
+    </tr>
+    <tr>
+      <th>2013-01-04</th>
+      <td>-0.390799</td>
+      <td>0.031603</td>
+      <td>-0.640422</td>
+      <td>1.509536</td>
+    </tr>
+    <tr>
+      <th>2013-01-06</th>
+      <td>-0.209014</td>
+      <td>2.067236</td>
+      <td>-1.189164</td>
+      <td>-2.576792</td>
+    </tr>
+    <tr>
+      <th>2013-01-01</th>
+      <td>-0.103959</td>
+      <td>-0.224066</td>
+      <td>0.053059</td>
+      <td>0.290960</td>
+    </tr>
+    <tr>
+      <th>2013-01-09</th>
+      <td>0.429110</td>
+      <td>0.397640</td>
+      <td>-0.442668</td>
+      <td>0.297924</td>
+    </tr>
+    <tr>
+      <th>2013-01-07</th>
+      <td>0.858301</td>
+      <td>0.897186</td>
+      <td>2.471595</td>
+      <td>-0.266703</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python">df.sort_values(by=<span class="hljs-string">&apos;A&apos;</span>, ascending=<span class="hljs-keyword">False</span>)  <span class="hljs-comment"># &#x5012;&#x5E8F;</span>
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2013-01-07</th>
+      <td>0.858301</td>
+      <td>0.897186</td>
+      <td>2.471595</td>
+      <td>-0.266703</td>
+    </tr>
+    <tr>
+      <th>2013-01-09</th>
+      <td>0.429110</td>
+      <td>0.397640</td>
+      <td>-0.442668</td>
+      <td>0.297924</td>
+    </tr>
+    <tr>
+      <th>2013-01-01</th>
+      <td>-0.103959</td>
+      <td>-0.224066</td>
+      <td>0.053059</td>
+      <td>0.290960</td>
+    </tr>
+    <tr>
+      <th>2013-01-06</th>
+      <td>-0.209014</td>
+      <td>2.067236</td>
+      <td>-1.189164</td>
+      <td>-2.576792</td>
+    </tr>
+    <tr>
+      <th>2013-01-04</th>
+      <td>-0.390799</td>
+      <td>0.031603</td>
+      <td>-0.640422</td>
+      <td>1.509536</td>
+    </tr>
+    <tr>
+      <th>2013-01-05</th>
+      <td>-0.528242</td>
+      <td>1.082984</td>
+      <td>-0.683790</td>
+      <td>1.817270</td>
+    </tr>
+    <tr>
+      <th>2013-01-03</th>
+      <td>-0.724801</td>
+      <td>0.383705</td>
+      <td>-1.284566</td>
+      <td>1.446194</td>
+    </tr>
+    <tr>
+      <th>2013-01-02</th>
+      <td>-0.881603</td>
+      <td>0.828593</td>
+      <td>0.417493</td>
+      <td>0.165275</td>
+    </tr>
+    <tr>
+      <th>2013-01-08</th>
+      <td>-1.481403</td>
+      <td>-1.592341</td>
+      <td>0.433450</td>
+      <td>0.224229</td>
+    </tr>
+    <tr>
+      <th>2013-01-10</th>
+      <td>-1.537641</td>
+      <td>1.623557</td>
+      <td>0.052487</td>
+      <td>0.846663</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python"><span class="hljs-comment"># &#x6309;&#x5217;&#x6392;&#x5E8F;&#xFF08;&#x4E00;&#x884C;&#x7684;&#x6240;&#x6709;&#x5217;&#xFF09;</span>
+df.sort_values(axis=<span class="hljs-number">1</span>, by=<span class="hljs-string">&apos;2013-01-03&apos;</span>, ascending=<span class="hljs-keyword">False</span>)  <span class="hljs-comment"># &#x6309;&#x5217;&#x6392;&#x5E8F;&#xFF0C;&#x6307;&#x5B9A;&#x884C;&#x57FA;&#x51C6;&#x4E3A;...&#xFF0C;&#x964D;&#x5E8F;</span>
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>D</th>
+      <th>B</th>
+      <th>A</th>
+      <th>C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2013-01-01</th>
+      <td>0.290960</td>
+      <td>-0.224066</td>
+      <td>-0.103959</td>
+      <td>0.053059</td>
+    </tr>
+    <tr>
+      <th>2013-01-02</th>
+      <td>0.165275</td>
+      <td>0.828593</td>
+      <td>-0.881603</td>
+      <td>0.417493</td>
+    </tr>
+    <tr>
+      <th>2013-01-03</th>
+      <td>1.446194</td>
+      <td>0.383705</td>
+      <td>-0.724801</td>
+      <td>-1.284566</td>
+    </tr>
+    <tr>
+      <th>2013-01-04</th>
+      <td>1.509536</td>
+      <td>0.031603</td>
+      <td>-0.390799</td>
+      <td>-0.640422</td>
+    </tr>
+    <tr>
+      <th>2013-01-05</th>
+      <td>1.817270</td>
+      <td>1.082984</td>
+      <td>-0.528242</td>
+      <td>-0.683790</td>
+    </tr>
+    <tr>
+      <th>2013-01-06</th>
+      <td>-2.576792</td>
+      <td>2.067236</td>
+      <td>-0.209014</td>
+      <td>-1.189164</td>
+    </tr>
+    <tr>
+      <th>2013-01-07</th>
+      <td>-0.266703</td>
+      <td>0.897186</td>
+      <td>0.858301</td>
+      <td>2.471595</td>
+    </tr>
+    <tr>
+      <th>2013-01-08</th>
+      <td>0.224229</td>
+      <td>-1.592341</td>
+      <td>-1.481403</td>
+      <td>0.433450</td>
+    </tr>
+    <tr>
+      <th>2013-01-09</th>
+      <td>0.297924</td>
+      <td>0.397640</td>
+      <td>0.429110</td>
+      <td>-0.442668</td>
+    </tr>
+    <tr>
+      <th>2013-01-10</th>
+      <td>0.846663</td>
+      <td>1.623557</td>
+      <td>-1.537641</td>
+      <td>0.052487</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>&#x5173;&#x4E8E;&#x6392;&#x5E8F;&#x4E2D;&#x7684;&#x7F3A;&#x5931;&#x503C;&#x95EE;&#x9898;</p>
+<p>&#x6392;&#x5E8F;&#x4E0D;&#x8BBA;&#x5347;&#x5E8F;&#x964D;&#x5E8F;&#xFF0C;&#x7F3A;&#x5931;&#x503C;&#x6C38;&#x8FDC;&#x6392;&#x5728;&#x6700;&#x540E;</p>
+<pre><code class="lang-python">a = pd.DataFrame(np.arange(<span class="hljs-number">12</span>).reshape(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>), index=[<span class="hljs-string">&apos;a&apos;</span>,<span class="hljs-string">&apos;b&apos;</span>,<span class="hljs-string">&apos;c&apos;</span>])
+a
+b = pd.DataFrame(np.arange(<span class="hljs-number">20</span>).reshape(<span class="hljs-number">4</span>,<span class="hljs-number">5</span>), index=[<span class="hljs-string">&apos;c&apos;</span>,<span class="hljs-string">&apos;a&apos;</span>,<span class="hljs-string">&apos;d&apos;</span>,<span class="hljs-string">&apos;b&apos;</span>])
+b
+
+c = a + b
+c
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>5.0</td>
+      <td>7.0</td>
+      <td>9.0</td>
+      <td>11.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>19.0</td>
+      <td>21.0</td>
+      <td>23.0</td>
+      <td>25.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>8.0</td>
+      <td>10.0</td>
+      <td>12.0</td>
+      <td>14.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python">c.sort_values(by=<span class="hljs-number">0</span>)  <span class="hljs-comment"># &#x5347;&#x5E8F;&#xFF0C;&#x7F3A;&#x5931;&#x503C;&#x5728;&#x6700;&#x540E;</span>
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>5.0</td>
+      <td>7.0</td>
+      <td>9.0</td>
+      <td>11.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>8.0</td>
+      <td>10.0</td>
+      <td>12.0</td>
+      <td>14.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>19.0</td>
+      <td>21.0</td>
+      <td>23.0</td>
+      <td>25.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python">c.sort_values(by=<span class="hljs-number">0</span>, ascending=<span class="hljs-keyword">False</span>)  <span class="hljs-comment"># &#x964D;&#x5E8F;&#xFF0C;&#x7F3A;&#x5931;&#x503C;&#x8FD8;&#x5728;&#x6700;&#x540E;</span>
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>b</th>
+      <td>19.0</td>
+      <td>21.0</td>
+      <td>23.0</td>
+      <td>25.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>8.0</td>
+      <td>10.0</td>
+      <td>12.0</td>
+      <td>14.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>5.0</td>
+      <td>7.0</td>
+      <td>9.0</td>
+      <td>11.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<h1 id="&#x968F;&#x673A;&#x6392;&#x5217;&#x548C;&#x968F;&#x673A;&#x91C7;&#x6837;">&#x968F;&#x673A;&#x6392;&#x5217;&#x548C;&#x968F;&#x673A;&#x91C7;&#x6837;</h1>
+<h2 id="&#x968F;&#x673A;&#x6392;&#x5217;">&#x968F;&#x673A;&#x6392;&#x5217;</h2>
+<p>&#x5229;&#x7528;numpy.random.permutation&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x5BF9;Series&#x6216;DataFrame&#x7684;&#x5217;&#x7684;&#x968F;&#x673A;&#x6392;&#x5E8F;&#x5DE5;&#x4F5C;&#xFF08;permuting&#xFF0C;&#x968F;&#x673A;&#x91CD;&#x6392;&#x5E8F;&#xFF09;</p>
+<p>&#x901A;&#x8FC7;&#x9700;&#x8981;&#x6392;&#x5217;&#x7684;&#x8F74;&#x7684;&#x957F;&#x5EA6;&#x8C03;&#x7528;permutation&#xFF0C;&#x53EF;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x8868;&#x793A;&#x65B0;&#x987A;&#x5E8F;&#x7684;&#x6574;&#x6570;&#x6570;&#x7EC4;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x968F;&#x673A;&#x6392;&#x5217;&#x5E8F;&#x5217;</span>
+a = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>]
+np.random.permutation(a)
+</code></pre>
+<pre><code>array([7, 5, 3, 6, 4, 2, 1])
+</code></pre><pre><code class="lang-python">df = pd.DataFrame(np.arange(<span class="hljs-number">5</span> * <span class="hljs-number">4</span>).reshape((<span class="hljs-number">5</span>, <span class="hljs-number">4</span>)))
+df
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>16</td>
+      <td>17</td>
+      <td>18</td>
+      <td>19</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python">df.index
+</code></pre>
+<pre><code>RangeIndex(start=0, stop=5, step=1)
+</code></pre><pre><code class="lang-python">df.columns
+</code></pre>
+<pre><code>RangeIndex(start=0, stop=4, step=1)
+</code></pre><pre><code class="lang-python"><span class="hljs-comment"># &#x6253;&#x4E71;&#x884C;&#x7D22;&#x5F15;</span>
+np.random.permutation(df.index)
+</code></pre>
+<pre><code>array([3, 2, 4, 1, 0], dtype=int64)
+</code></pre><p>&#x968F;&#x673A;&#x6392;&#x5E8F;&#xFF0C;&#x6309;&#x884C;&#x7D22;&#x5F15;</p>
+<pre><code class="lang-python">df
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>16</td>
+      <td>17</td>
+      <td>18</td>
+      <td>19</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python">df.loc[[<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">0</span>,<span class="hljs-number">4</span>]]
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>16</td>
+      <td>17</td>
+      <td>18</td>
+      <td>19</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python">df.loc[np.random.permutation(df.index)]
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>16</td>
+      <td>17</td>
+      <td>18</td>
+      <td>19</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>&#x968F;&#x673A;&#x91CD;&#x6392;&#x884C;&#x7D22;&#x5F15;&#x548C;&#x5217;&#x7D22;&#x5F15;</p>
+<pre><code class="lang-python">index2 = np.random.permutation(df.index)
+index2
+
+columns2 = np.random.permutation(df.columns)
+columns2
+
+df.loc[index2, columns2]
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>3</th>
+      <th>2</th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>17</td>
+      <td>19</td>
+      <td>18</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>13</td>
+      <td>15</td>
+      <td>14</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9</td>
+      <td>11</td>
+      <td>10</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>7</td>
+      <td>6</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<h1 id="&#x968F;&#x673A;&#x91C7;&#x6837;">&#x968F;&#x673A;&#x91C7;&#x6837;</h1>
+<p>choice(),&#x4ECE;&#x4E00;&#x4E2A;&#x5E8F;&#x5217;&#x4E2D;&#x968F;&#x673A;&#x62BD;&#x53D6;&#x67D0;&#x4E9B;&#x503C;</p>
+<pre><code class="lang-python">a = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>]
+
+np.random.choice(a)  <span class="hljs-comment"># &#x4ECE;&#x5E8F;&#x5217;&#x4E2D;&#x968F;&#x673A;&#x62BD;&#x53D6;1&#x4E2A;&#x503C;</span>
+np.random.choice(a, size=<span class="hljs-number">3</span>)  <span class="hljs-comment"># &#x62BD;3&#x4E2A;</span>
+np.random.choice(a, size=<span class="hljs-number">3</span>, replace=<span class="hljs-keyword">False</span>)  <span class="hljs-comment"># &#x4E0D;&#x91CD;&#x590D;&#x62BD;&#x53D6;</span>
+</code></pre>
+<pre><code>array([2, 7, 4])
+</code></pre><h3 id="&#x968F;&#x673A;&#x91C7;&#x6837;">&#x968F;&#x673A;&#x91C7;&#x6837;</h3>
+<pre><code class="lang-python">df
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>16</td>
+      <td>17</td>
+      <td>18</td>
+      <td>19</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<h2 id="&#x6309;&#x884C;&#x968F;&#x673A;&#x62BD;&#x53D6;">&#x6309;&#x884C;&#x968F;&#x673A;&#x62BD;&#x53D6;</h2>
+<pre><code class="lang-python">df.index
+index2 = np.random.choice(df.index, size=<span class="hljs-number">3</span>, replace=<span class="hljs-keyword">False</span>)
+index2
+
+df.loc[index2]
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>16</td>
+      <td>17</td>
+      <td>18</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<h2 id="&#x6309;&#x884C;&#xFF0C;&#x6309;&#x5217;&#x968F;&#x673A;&#x62BD;&#x53D6;">&#x6309;&#x884C;&#xFF0C;&#x6309;&#x5217;&#x968F;&#x673A;&#x62BD;&#x53D6;</h2>
+<pre><code class="lang-python">index2 = np.random.choice(df.index, size=<span class="hljs-number">3</span>, replace=<span class="hljs-keyword">False</span>)
+index2
+
+columns2 = np.random.choice(df.columns, size=<span class="hljs-number">2</span>, replace=<span class="hljs-keyword">False</span>)
+columns2
+
+df.loc[index2, columns2]
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>8</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>16</td>
+      <td>18</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../数据分析库的操作/10Pandas数据规整-清理.html" class="navigation navigation-prev " aria-label="Previous page: Pandas数据规整-清理"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../数据分析库的操作/13Pandas数据规整-重塑和轴向旋转.html" class="navigation navigation-next " aria-label="Next page: Pandas数据规整-重塑和轴向旋转"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
