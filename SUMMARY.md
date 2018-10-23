@@ -1,13 +1,19 @@
 * [数据分析](README.md)
 * [Python数据分析内容](Python数据分析序言/内容序言.md)
 
-* [python数据分析环境和工具]()
-    * [Python数据课程 软件和环境安装](python数据分析环境和工具/Python数据课程软件和环境安装.md)
-    * [python发行版](python数据分析环境和工具/python发行版.md)
-    * [Markdown](python数据分析环境和工具/Markdown.md)
-    * [Markdown语法](python数据分析环境和工具/Markdown语法.md)
-    * [交互式编辑器-JupyterNotebook](python数据分析环境和工具/交互式编辑器-JupyterNotebook.md)
-    * [Gitbook文档](python数据分析环境和工具/Gitbook文档.md)
+* [python数据分析环境和工具](python数据分析环境和工具/Python数据分析相关.md)
+    * [Python数据课程 软件和环境安装](python数据分析环境和工具/1Python数据课程软件和环境安装.md)
+    * [python发行版](python数据分析环境和工具/2python发行版.md)
+    * [交互式编辑器-JupyterNotebook](python数据分析环境和工具/5交互式编辑器-JupyterNotebook.md)
+        * [Jupyter-notebook拓展应用](python数据分析环境和工具/5.1Jupyter-notebook拓展应用.md)
+    * [包和环境管理器：conda](python数据分析环境和工具/包和环境管理器：conda.md)
+        * [pip和Virtualenv](python数据分析环境和工具/pip和Virtualenv.md)
+
+    * [标记语言：Markdown](python数据分析环境和工具/3Markdown.md)
+        * [Markdown语法](python数据分析环境和工具/4Markdown语法.md)
+        * [文档管理工具-Gitbook](python数据分析环境和工具/6Gitbook文档.md)
+    
+    
 
 * [数据分析库-Pandas]()
     * [pandas](数据分析库的初步认识/Pandas创建.md)
@@ -27,7 +33,8 @@
         * [Pandas分组聚合2](数据分析库的操作/9Pandas分组聚合2.md)
         * [Pandas数据规整-清理](数据分析库的操作/10Pandas数据规整-清理.md)
         * [Pandas数据规整-转换](数据分析库的操作/11Pandas数据规整-转换.md)
-
+            * [离散化和面元划分](数据分析库的操作/14Pandas数据规整-转换-离散化和面元划分.md)
+        * [Pandas数据规整-合并](数据分析库的操作/16Pandas数据规整-合并.md)
     * [Pandas数据规整-重塑和轴向旋转](数据分析库的操作/13Pandas数据规整-重塑和轴向旋转.md)
         * [透视表和交叉表](数据分析库的操作/13.1透视表和交叉表.md)
 
