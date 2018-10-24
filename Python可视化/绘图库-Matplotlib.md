@@ -13,8 +13,17 @@
 
 绘制之前先重启编辑器，清除之前执行的代码结果
 
-## 绘制我的第一个图表
+![png](images/matplotlib.svg)
 
+* Matplotlib是最流行的Python二维底层绘图库，主要用做数据可视化图表绘制
+* 名字取材于MATLAB，模仿MATLAB构建
+* 支持所有2D作图和部分3D作图
+* 生成印刷质量图像
+* 官方绘图示例展示：http://matplotlib.org/gallery.html
+    * 本地版：Matplotlib图例
+
+
+## 绘制我的第一个图表
 
 ```python
 # 载入Matplotlib的pyplot子库

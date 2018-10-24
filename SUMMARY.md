@@ -12,10 +12,8 @@
     * [标记语言：Markdown](python数据分析环境和工具/3Markdown.md)
         * [Markdown语法](python数据分析环境和工具/4Markdown语法.md)
         * [文档管理工具-Gitbook](python数据分析环境和工具/6Gitbook文档.md)
-    
-    
 
-* [数据分析库-Pandas]()
+* [数据分析库-Pandas](数据分析库的初步认识/index.md)
     * [pandas](数据分析库的初步认识/Pandas创建.md)
     * [Series](数据分析库的初步认识/Series创建.md)
     * [DataFrame对象-创建](数据分析库的初步认识/DataFrame创建.md)
@@ -39,9 +37,16 @@
         * [透视表和交叉表](数据分析库的操作/13.1透视表和交叉表.md)
 
 * [Python可视化](Python可视化/绘图库-Matplotlib.md)
-    * [Matplotlib常见图表](Python可视化/绘图库-Matplotlib/Matplotlib常见图表.md)
-    * [Matplotlib常见设置和操作](Python可视化/绘图库-Matplotlib/Matplotlib常见设置和操作.md)
+    * [基础：Matplotlib常见图表](Python可视化/绘图库-Matplotlib/Matplotlib常见图表.md)
+        * [Matplotlib常见设置和操作](Python可视化/绘图库-Matplotlib/Matplotlib常见设置和操作.md)
+    * [提升：绘图区域](Python可视化/绘图库-Matplotlib/1Matplotlib-绘图区域.md)
+    * [提升：绘图组件](Python可视化/绘图库-Matplotlib/2Matplotlib-图像组件.md)
+    * [拓展：高级绘图](Python可视化/绘图库-Matplotlib/3Matplotlib-高级绘图.md)
+    * [拓展：数学计算展示图像](Python可视化/绘图库-Matplotlib/4数学计算展示图像.md)
+    * [拓展：注意事项](Python可视化/绘图库-Matplotlib/5注意事项.md)
+    * [拓展：pylab](Python可视化/绘图库-Matplotlib/6pylab.md)
+
 
 * [数据分析必备知识点](数据分析必备知识点/数据分析必备知识点汇集.md)
 
-
+* [数据分析流程](数据分析必备知识点/数据分析流程.md)
